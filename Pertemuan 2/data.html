@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <!-- css -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: rgb(184, 184, 184);
+        }
+
+        tfoot {
+            background-color: rgb(184, 184, 184);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- judul -->
+    <h2>Data Pegawai</h2>
+    <table>
+        <!-- judul kolom -->
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Umur</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+            </tr>
+        </thead>
+        <!-- data -->
+        <tbody>
+            <script>
+                //data pegawai
+                let Pegawai = "Dodi Prayodi";
+                let Umur = 25;
+                let Jabatan = "Manajer";
+                let Status = "Menikah";
+
+                //gaji pokok
+                let Gapok;
+                if (Jabatan == "Manajer") {
+                    Gapok = 15000000;
+                } else if (Jabatan == "Asisten Manajer") {
+                    Gapok = 10000000;
+                } else {
+                    Gapok = 5000000;
+                }
+
+                //tunjangan jabagtan 15%
+                let TunjanganJabatan = 0.15 * Gapok;
+
+                //bpjs 10%
+                let BPJS = 0.1 * Gapok;
+
+                //tunjangan keluarga 20%
+                let TunjanganKeluarga = (Status == "Menikah") ? 0.2 * Gapok : 0;
+
+                //total gaji
+                let Total = Gapok + TunjanganJabatan + BPJS + TunjanganKeluarga;
+
+                //cetak
+                document.write("<tr>");
+                document.write("<td>" + Pegawai + "</td>");
+                document.write("<td>" + Umur + " tahun</td>");
+                document.write("<td>" + Jabatan + "</td>");
+                document.write("<td>" + Status + "</td>");
+                document.write("<td>Rp " + Gapok.toLocaleString() + "</td>");
+                document.write("<td>Rp " + TunjanganJabatan.toLocaleString() + "</td>");
+                document.write("<td>Rp " + BPJS.toLocaleString() + "</td>");
+                document.write("<td>Rp " + TunjanganKeluarga.toLocaleString() + "</td>");
+                document.write("</tr>");
+            </script>
+        </tbody>
+        <tfoot>
+            <!-- tfoot jumlah gaji -->
+            <tr>
+                <th colspan="7">Jumlah Gaji</th>
+                <th>
+                    <script>document.write("Rp " + Total.toLocaleString())</script>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>
