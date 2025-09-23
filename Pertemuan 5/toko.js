@@ -35,7 +35,7 @@ function tampilkanProduk() {
   console.log("-------------------------------------------");
 }
 
-//fungsinya
+//eksekusi
 tampilkanProduk();
 tambahProduk(6, "Tablet", 7000000);
 tampilkanProduk();
